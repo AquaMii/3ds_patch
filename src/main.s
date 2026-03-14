@@ -23,7 +23,7 @@ mount_hooks_address equ 0x38DC30
 der_cert_address equ 0x38DCB0
 
 .org discovery_string
-	.ascii "https://disc.olv.innoverse.club/v1/endpoint", 0
+	.ascii "https://discovery.innoverse.club/v1/endpoint", 0
 
 .include "src/certs.s"
 .include "src/mounting.s"
