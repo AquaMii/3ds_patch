@@ -4,7 +4,7 @@
 
 // set certificate location
 .org browser_cave_pem_string
-	.ascii "3ds/friiverse.pem", 0
+	.ascii "3ds/aquamii.pem", 0
 
 // include the rootca
 .org der_cert_address
