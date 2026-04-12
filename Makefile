@@ -13,15 +13,20 @@ OUT    = out
 BIN    = code.bin
 PATCH  = $(BUILD)/patched_code.bin
 
+CERTS  = certs
+CERT   = aquamii.pem
+
 .PHONY: all clean directories patches
 
 all: directories patches
 
 directories:
 	@mkdir -p $(BUILD)
+	@mkdir -p $(OUT)/3ds
 	@mkdir -p $(OUT)/$(LUMA_TITLES)/$(TID_EUR)
 	@mkdir -p $(OUT)/$(LUMA_TITLES)/$(TID_USA)
 	@mkdir -p $(OUT)/$(LUMA_TITLES)/$(TID_JPN)
+	@cp $(CERTS)/$(CERT) $(OUT)/3ds/
 
 patches: $(SRC)
 	@echo "Assembling..."
@@ -30,7 +35,6 @@ patches: $(SRC)
 	@$(FLIPS) -c $(BIN) $(PATCH) $(OUT)/$(LUMA_TITLES)/$(TID_EUR)/code.ips
 	@$(FLIPS) -c $(BIN) $(PATCH) $(OUT)/$(LUMA_TITLES)/$(TID_USA)/code.ips
 	@$(FLIPS) -c $(BIN) $(PATCH) $(OUT)/$(LUMA_TITLES)/$(TID_JPN)/code.ips
-	@echo "Done!"
 
 clean:
 	@echo "Cleaning up..."
